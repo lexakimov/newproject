@@ -15,7 +15,6 @@ import java.io.Serializable;
 
 import java.lang.reflect.Method;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,12 +24,6 @@ public class PRRegistrationClp extends BaseModelImpl<PRRegistration>
     private long _registrationId;
     private long _prUserId;
     private String _prUserUuid;
-    private Date _datePurchased;
-    private String _howHear;
-    private String _wherePurchased;
-    private String _serialNumber;
-    private long _productId;
-    private long _companyId;
     private long _groupId;
     private BaseModel<?> _prRegistrationRemoteModel;
     private Class<?> _clpSerializerClass = com.example.sb.service.ClpSerializer.class;
@@ -74,12 +67,6 @@ public class PRRegistrationClp extends BaseModelImpl<PRRegistration>
 
         attributes.put("registrationId", getRegistrationId());
         attributes.put("prUserId", getPrUserId());
-        attributes.put("datePurchased", getDatePurchased());
-        attributes.put("howHear", getHowHear());
-        attributes.put("wherePurchased", getWherePurchased());
-        attributes.put("serialNumber", getSerialNumber());
-        attributes.put("productId", getProductId());
-        attributes.put("companyId", getCompanyId());
         attributes.put("groupId", getGroupId());
 
         return attributes;
@@ -97,42 +84,6 @@ public class PRRegistrationClp extends BaseModelImpl<PRRegistration>
 
         if (prUserId != null) {
             setPrUserId(prUserId);
-        }
-
-        Date datePurchased = (Date) attributes.get("datePurchased");
-
-        if (datePurchased != null) {
-            setDatePurchased(datePurchased);
-        }
-
-        String howHear = (String) attributes.get("howHear");
-
-        if (howHear != null) {
-            setHowHear(howHear);
-        }
-
-        String wherePurchased = (String) attributes.get("wherePurchased");
-
-        if (wherePurchased != null) {
-            setWherePurchased(wherePurchased);
-        }
-
-        String serialNumber = (String) attributes.get("serialNumber");
-
-        if (serialNumber != null) {
-            setSerialNumber(serialNumber);
-        }
-
-        Long productId = (Long) attributes.get("productId");
-
-        if (productId != null) {
-            setProductId(productId);
-        }
-
-        Long companyId = (Long) attributes.get("companyId");
-
-        if (companyId != null) {
-            setCompanyId(companyId);
         }
 
         Long groupId = (Long) attributes.get("groupId");
@@ -194,139 +145,6 @@ public class PRRegistrationClp extends BaseModelImpl<PRRegistration>
     @Override
     public void setPrUserUuid(String prUserUuid) {
         _prUserUuid = prUserUuid;
-    }
-
-    @Override
-    public Date getDatePurchased() {
-        return _datePurchased;
-    }
-
-    @Override
-    public void setDatePurchased(Date datePurchased) {
-        _datePurchased = datePurchased;
-
-        if (_prRegistrationRemoteModel != null) {
-            try {
-                Class<?> clazz = _prRegistrationRemoteModel.getClass();
-
-                Method method = clazz.getMethod("setDatePurchased", Date.class);
-
-                method.invoke(_prRegistrationRemoteModel, datePurchased);
-            } catch (Exception e) {
-                throw new UnsupportedOperationException(e);
-            }
-        }
-    }
-
-    @Override
-    public String getHowHear() {
-        return _howHear;
-    }
-
-    @Override
-    public void setHowHear(String howHear) {
-        _howHear = howHear;
-
-        if (_prRegistrationRemoteModel != null) {
-            try {
-                Class<?> clazz = _prRegistrationRemoteModel.getClass();
-
-                Method method = clazz.getMethod("setHowHear", String.class);
-
-                method.invoke(_prRegistrationRemoteModel, howHear);
-            } catch (Exception e) {
-                throw new UnsupportedOperationException(e);
-            }
-        }
-    }
-
-    @Override
-    public String getWherePurchased() {
-        return _wherePurchased;
-    }
-
-    @Override
-    public void setWherePurchased(String wherePurchased) {
-        _wherePurchased = wherePurchased;
-
-        if (_prRegistrationRemoteModel != null) {
-            try {
-                Class<?> clazz = _prRegistrationRemoteModel.getClass();
-
-                Method method = clazz.getMethod("setWherePurchased",
-                        String.class);
-
-                method.invoke(_prRegistrationRemoteModel, wherePurchased);
-            } catch (Exception e) {
-                throw new UnsupportedOperationException(e);
-            }
-        }
-    }
-
-    @Override
-    public String getSerialNumber() {
-        return _serialNumber;
-    }
-
-    @Override
-    public void setSerialNumber(String serialNumber) {
-        _serialNumber = serialNumber;
-
-        if (_prRegistrationRemoteModel != null) {
-            try {
-                Class<?> clazz = _prRegistrationRemoteModel.getClass();
-
-                Method method = clazz.getMethod("setSerialNumber", String.class);
-
-                method.invoke(_prRegistrationRemoteModel, serialNumber);
-            } catch (Exception e) {
-                throw new UnsupportedOperationException(e);
-            }
-        }
-    }
-
-    @Override
-    public long getProductId() {
-        return _productId;
-    }
-
-    @Override
-    public void setProductId(long productId) {
-        _productId = productId;
-
-        if (_prRegistrationRemoteModel != null) {
-            try {
-                Class<?> clazz = _prRegistrationRemoteModel.getClass();
-
-                Method method = clazz.getMethod("setProductId", long.class);
-
-                method.invoke(_prRegistrationRemoteModel, productId);
-            } catch (Exception e) {
-                throw new UnsupportedOperationException(e);
-            }
-        }
-    }
-
-    @Override
-    public long getCompanyId() {
-        return _companyId;
-    }
-
-    @Override
-    public void setCompanyId(long companyId) {
-        _companyId = companyId;
-
-        if (_prRegistrationRemoteModel != null) {
-            try {
-                Class<?> clazz = _prRegistrationRemoteModel.getClass();
-
-                Method method = clazz.getMethod("setCompanyId", long.class);
-
-                method.invoke(_prRegistrationRemoteModel, companyId);
-            } catch (Exception e) {
-                throw new UnsupportedOperationException(e);
-            }
-        }
     }
 
     @Override
@@ -422,12 +240,6 @@ public class PRRegistrationClp extends BaseModelImpl<PRRegistration>
 
         clone.setRegistrationId(getRegistrationId());
         clone.setPrUserId(getPrUserId());
-        clone.setDatePurchased(getDatePurchased());
-        clone.setHowHear(getHowHear());
-        clone.setWherePurchased(getWherePurchased());
-        clone.setSerialNumber(getSerialNumber());
-        clone.setProductId(getProductId());
-        clone.setCompanyId(getCompanyId());
         clone.setGroupId(getGroupId());
 
         return clone;
@@ -478,24 +290,12 @@ public class PRRegistrationClp extends BaseModelImpl<PRRegistration>
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(19);
+        StringBundler sb = new StringBundler(7);
 
         sb.append("{registrationId=");
         sb.append(getRegistrationId());
         sb.append(", prUserId=");
         sb.append(getPrUserId());
-        sb.append(", datePurchased=");
-        sb.append(getDatePurchased());
-        sb.append(", howHear=");
-        sb.append(getHowHear());
-        sb.append(", wherePurchased=");
-        sb.append(getWherePurchased());
-        sb.append(", serialNumber=");
-        sb.append(getSerialNumber());
-        sb.append(", productId=");
-        sb.append(getProductId());
-        sb.append(", companyId=");
-        sb.append(getCompanyId());
         sb.append(", groupId=");
         sb.append(getGroupId());
         sb.append("}");
@@ -505,7 +305,7 @@ public class PRRegistrationClp extends BaseModelImpl<PRRegistration>
 
     @Override
     public String toXmlString() {
-        StringBundler sb = new StringBundler(31);
+        StringBundler sb = new StringBundler(13);
 
         sb.append("<model><model-name>");
         sb.append("com.example.sb.model.PRRegistration");
@@ -518,30 +318,6 @@ public class PRRegistrationClp extends BaseModelImpl<PRRegistration>
         sb.append(
             "<column><column-name>prUserId</column-name><column-value><![CDATA[");
         sb.append(getPrUserId());
-        sb.append("]]></column-value></column>");
-        sb.append(
-            "<column><column-name>datePurchased</column-name><column-value><![CDATA[");
-        sb.append(getDatePurchased());
-        sb.append("]]></column-value></column>");
-        sb.append(
-            "<column><column-name>howHear</column-name><column-value><![CDATA[");
-        sb.append(getHowHear());
-        sb.append("]]></column-value></column>");
-        sb.append(
-            "<column><column-name>wherePurchased</column-name><column-value><![CDATA[");
-        sb.append(getWherePurchased());
-        sb.append("]]></column-value></column>");
-        sb.append(
-            "<column><column-name>serialNumber</column-name><column-value><![CDATA[");
-        sb.append(getSerialNumber());
-        sb.append("]]></column-value></column>");
-        sb.append(
-            "<column><column-name>productId</column-name><column-value><![CDATA[");
-        sb.append(getProductId());
-        sb.append("]]></column-value></column>");
-        sb.append(
-            "<column><column-name>companyId</column-name><column-value><![CDATA[");
-        sb.append(getCompanyId());
         sb.append("]]></column-value></column>");
         sb.append(
             "<column><column-name>groupId</column-name><column-value><![CDATA[");

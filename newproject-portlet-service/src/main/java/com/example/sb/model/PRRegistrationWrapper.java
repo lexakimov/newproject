@@ -3,7 +3,6 @@ package com.example.sb.model;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,12 +39,6 @@ public class PRRegistrationWrapper implements PRRegistration,
 
         attributes.put("registrationId", getRegistrationId());
         attributes.put("prUserId", getPrUserId());
-        attributes.put("datePurchased", getDatePurchased());
-        attributes.put("howHear", getHowHear());
-        attributes.put("wherePurchased", getWherePurchased());
-        attributes.put("serialNumber", getSerialNumber());
-        attributes.put("productId", getProductId());
-        attributes.put("companyId", getCompanyId());
         attributes.put("groupId", getGroupId());
 
         return attributes;
@@ -63,42 +56,6 @@ public class PRRegistrationWrapper implements PRRegistration,
 
         if (prUserId != null) {
             setPrUserId(prUserId);
-        }
-
-        Date datePurchased = (Date) attributes.get("datePurchased");
-
-        if (datePurchased != null) {
-            setDatePurchased(datePurchased);
-        }
-
-        String howHear = (String) attributes.get("howHear");
-
-        if (howHear != null) {
-            setHowHear(howHear);
-        }
-
-        String wherePurchased = (String) attributes.get("wherePurchased");
-
-        if (wherePurchased != null) {
-            setWherePurchased(wherePurchased);
-        }
-
-        String serialNumber = (String) attributes.get("serialNumber");
-
-        if (serialNumber != null) {
-            setSerialNumber(serialNumber);
-        }
-
-        Long productId = (Long) attributes.get("productId");
-
-        if (productId != null) {
-            setProductId(productId);
-        }
-
-        Long companyId = (Long) attributes.get("companyId");
-
-        if (companyId != null) {
-            setCompanyId(companyId);
         }
 
         Long groupId = (Long) attributes.get("groupId");
@@ -188,126 +145,6 @@ public class PRRegistrationWrapper implements PRRegistration,
     @Override
     public void setPrUserUuid(java.lang.String prUserUuid) {
         _prRegistration.setPrUserUuid(prUserUuid);
-    }
-
-    /**
-    * Returns the date purchased of this p r registration.
-    *
-    * @return the date purchased of this p r registration
-    */
-    @Override
-    public java.util.Date getDatePurchased() {
-        return _prRegistration.getDatePurchased();
-    }
-
-    /**
-    * Sets the date purchased of this p r registration.
-    *
-    * @param datePurchased the date purchased of this p r registration
-    */
-    @Override
-    public void setDatePurchased(java.util.Date datePurchased) {
-        _prRegistration.setDatePurchased(datePurchased);
-    }
-
-    /**
-    * Returns the how hear of this p r registration.
-    *
-    * @return the how hear of this p r registration
-    */
-    @Override
-    public java.lang.String getHowHear() {
-        return _prRegistration.getHowHear();
-    }
-
-    /**
-    * Sets the how hear of this p r registration.
-    *
-    * @param howHear the how hear of this p r registration
-    */
-    @Override
-    public void setHowHear(java.lang.String howHear) {
-        _prRegistration.setHowHear(howHear);
-    }
-
-    /**
-    * Returns the where purchased of this p r registration.
-    *
-    * @return the where purchased of this p r registration
-    */
-    @Override
-    public java.lang.String getWherePurchased() {
-        return _prRegistration.getWherePurchased();
-    }
-
-    /**
-    * Sets the where purchased of this p r registration.
-    *
-    * @param wherePurchased the where purchased of this p r registration
-    */
-    @Override
-    public void setWherePurchased(java.lang.String wherePurchased) {
-        _prRegistration.setWherePurchased(wherePurchased);
-    }
-
-    /**
-    * Returns the serial number of this p r registration.
-    *
-    * @return the serial number of this p r registration
-    */
-    @Override
-    public java.lang.String getSerialNumber() {
-        return _prRegistration.getSerialNumber();
-    }
-
-    /**
-    * Sets the serial number of this p r registration.
-    *
-    * @param serialNumber the serial number of this p r registration
-    */
-    @Override
-    public void setSerialNumber(java.lang.String serialNumber) {
-        _prRegistration.setSerialNumber(serialNumber);
-    }
-
-    /**
-    * Returns the product ID of this p r registration.
-    *
-    * @return the product ID of this p r registration
-    */
-    @Override
-    public long getProductId() {
-        return _prRegistration.getProductId();
-    }
-
-    /**
-    * Sets the product ID of this p r registration.
-    *
-    * @param productId the product ID of this p r registration
-    */
-    @Override
-    public void setProductId(long productId) {
-        _prRegistration.setProductId(productId);
-    }
-
-    /**
-    * Returns the company ID of this p r registration.
-    *
-    * @return the company ID of this p r registration
-    */
-    @Override
-    public long getCompanyId() {
-        return _prRegistration.getCompanyId();
-    }
-
-    /**
-    * Sets the company ID of this p r registration.
-    *
-    * @param companyId the company ID of this p r registration
-    */
-    @Override
-    public void setCompanyId(long companyId) {
-        _prRegistration.setCompanyId(companyId);
     }
 
     /**

@@ -8,7 +8,6 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
 import com.liferay.portal.service.ServiceContext;
@@ -21,7 +20,6 @@ import java.io.Serializable;
 
 import java.sql.Types;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,15 +47,9 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
     public static final Object[][] TABLE_COLUMNS = {
             { "registrationId", Types.BIGINT },
             { "prUserId", Types.BIGINT },
-            { "datePurchased", Types.TIMESTAMP },
-            { "howHear", Types.VARCHAR },
-            { "wherePurchased", Types.VARCHAR },
-            { "serialNumber", Types.VARCHAR },
-            { "productId", Types.BIGINT },
-            { "companyId", Types.BIGINT },
             { "groupId", Types.BIGINT }
         };
-    public static final String TABLE_SQL_CREATE = "create table SB_PRRegistration (registrationId LONG not null primary key,prUserId LONG,datePurchased DATE null,howHear VARCHAR(75) null,wherePurchased VARCHAR(75) null,serialNumber VARCHAR(75) null,productId LONG,companyId LONG,groupId LONG)";
+    public static final String TABLE_SQL_CREATE = "create table SB_PRRegistration (registrationId LONG not null primary key,prUserId LONG,groupId LONG)";
     public static final String TABLE_SQL_DROP = "drop table SB_PRRegistration";
     public static final String ORDER_BY_JPQL = " ORDER BY prRegistration.registrationId ASC";
     public static final String ORDER_BY_SQL = " ORDER BY SB_PRRegistration.registrationId ASC";
@@ -70,14 +62,7 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
     public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
                 "value.object.finder.cache.enabled.com.example.sb.model.PRRegistration"),
             true);
-    public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
-                "value.object.column.bitmask.enabled.com.example.sb.model.PRRegistration"),
-            true);
-    public static long DATEPURCHASED_COLUMN_BITMASK = 1L;
-    public static long GROUPID_COLUMN_BITMASK = 2L;
-    public static long PRUSERID_COLUMN_BITMASK = 4L;
-    public static long SERIALNUMBER_COLUMN_BITMASK = 8L;
-    public static long REGISTRATIONID_COLUMN_BITMASK = 16L;
+    public static final boolean COLUMN_BITMASK_ENABLED = false;
     public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
                 "lock.expiration.time.com.example.sb.model.PRRegistration"));
     private static ClassLoader _classLoader = PRRegistration.class.getClassLoader();
@@ -87,20 +72,7 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
     private long _registrationId;
     private long _prUserId;
     private String _prUserUuid;
-    private long _originalPrUserId;
-    private boolean _setOriginalPrUserId;
-    private Date _datePurchased;
-    private Date _originalDatePurchased;
-    private String _howHear;
-    private String _wherePurchased;
-    private String _serialNumber;
-    private String _originalSerialNumber;
-    private long _productId;
-    private long _companyId;
     private long _groupId;
-    private long _originalGroupId;
-    private boolean _setOriginalGroupId;
-    private long _columnBitmask;
     private PRRegistration _escapedModel;
 
     public PRRegistrationModelImpl() {
@@ -142,12 +114,6 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
 
         attributes.put("registrationId", getRegistrationId());
         attributes.put("prUserId", getPrUserId());
-        attributes.put("datePurchased", getDatePurchased());
-        attributes.put("howHear", getHowHear());
-        attributes.put("wherePurchased", getWherePurchased());
-        attributes.put("serialNumber", getSerialNumber());
-        attributes.put("productId", getProductId());
-        attributes.put("companyId", getCompanyId());
         attributes.put("groupId", getGroupId());
 
         return attributes;
@@ -165,42 +131,6 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
 
         if (prUserId != null) {
             setPrUserId(prUserId);
-        }
-
-        Date datePurchased = (Date) attributes.get("datePurchased");
-
-        if (datePurchased != null) {
-            setDatePurchased(datePurchased);
-        }
-
-        String howHear = (String) attributes.get("howHear");
-
-        if (howHear != null) {
-            setHowHear(howHear);
-        }
-
-        String wherePurchased = (String) attributes.get("wherePurchased");
-
-        if (wherePurchased != null) {
-            setWherePurchased(wherePurchased);
-        }
-
-        String serialNumber = (String) attributes.get("serialNumber");
-
-        if (serialNumber != null) {
-            setSerialNumber(serialNumber);
-        }
-
-        Long productId = (Long) attributes.get("productId");
-
-        if (productId != null) {
-            setProductId(productId);
-        }
-
-        Long companyId = (Long) attributes.get("companyId");
-
-        if (companyId != null) {
-            setCompanyId(companyId);
         }
 
         Long groupId = (Long) attributes.get("groupId");
@@ -227,14 +157,6 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
 
     @Override
     public void setPrUserId(long prUserId) {
-        _columnBitmask |= PRUSERID_COLUMN_BITMASK;
-
-        if (!_setOriginalPrUserId) {
-            _setOriginalPrUserId = true;
-
-            _originalPrUserId = _prUserId;
-        }
-
         _prUserId = prUserId;
     }
 
@@ -248,102 +170,6 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
         _prUserUuid = prUserUuid;
     }
 
-    public long getOriginalPrUserId() {
-        return _originalPrUserId;
-    }
-
-    @Override
-    public Date getDatePurchased() {
-        return _datePurchased;
-    }
-
-    @Override
-    public void setDatePurchased(Date datePurchased) {
-        _columnBitmask |= DATEPURCHASED_COLUMN_BITMASK;
-
-        if (_originalDatePurchased == null) {
-            _originalDatePurchased = _datePurchased;
-        }
-
-        _datePurchased = datePurchased;
-    }
-
-    public Date getOriginalDatePurchased() {
-        return _originalDatePurchased;
-    }
-
-    @Override
-    public String getHowHear() {
-        if (_howHear == null) {
-            return StringPool.BLANK;
-        } else {
-            return _howHear;
-        }
-    }
-
-    @Override
-    public void setHowHear(String howHear) {
-        _howHear = howHear;
-    }
-
-    @Override
-    public String getWherePurchased() {
-        if (_wherePurchased == null) {
-            return StringPool.BLANK;
-        } else {
-            return _wherePurchased;
-        }
-    }
-
-    @Override
-    public void setWherePurchased(String wherePurchased) {
-        _wherePurchased = wherePurchased;
-    }
-
-    @Override
-    public String getSerialNumber() {
-        if (_serialNumber == null) {
-            return StringPool.BLANK;
-        } else {
-            return _serialNumber;
-        }
-    }
-
-    @Override
-    public void setSerialNumber(String serialNumber) {
-        _columnBitmask |= SERIALNUMBER_COLUMN_BITMASK;
-
-        if (_originalSerialNumber == null) {
-            _originalSerialNumber = _serialNumber;
-        }
-
-        _serialNumber = serialNumber;
-    }
-
-    public String getOriginalSerialNumber() {
-        return GetterUtil.getString(_originalSerialNumber);
-    }
-
-    @Override
-    public long getProductId() {
-        return _productId;
-    }
-
-    @Override
-    public void setProductId(long productId) {
-        _productId = productId;
-    }
-
-    @Override
-    public long getCompanyId() {
-        return _companyId;
-    }
-
-    @Override
-    public void setCompanyId(long companyId) {
-        _companyId = companyId;
-    }
-
     @Override
     public long getGroupId() {
         return _groupId;
@@ -351,28 +177,12 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
 
     @Override
     public void setGroupId(long groupId) {
-        _columnBitmask |= GROUPID_COLUMN_BITMASK;
-
-        if (!_setOriginalGroupId) {
-            _setOriginalGroupId = true;
-
-            _originalGroupId = _groupId;
-        }
-
         _groupId = groupId;
-    }
-
-    public long getOriginalGroupId() {
-        return _originalGroupId;
-    }
-
-    public long getColumnBitmask() {
-        return _columnBitmask;
     }
 
     @Override
     public ExpandoBridge getExpandoBridge() {
-        return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
+        return ExpandoBridgeFactoryUtil.getExpandoBridge(0,
             PRRegistration.class.getName(), getPrimaryKey());
     }
 
@@ -399,12 +209,6 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
 
         prRegistrationImpl.setRegistrationId(getRegistrationId());
         prRegistrationImpl.setPrUserId(getPrUserId());
-        prRegistrationImpl.setDatePurchased(getDatePurchased());
-        prRegistrationImpl.setHowHear(getHowHear());
-        prRegistrationImpl.setWherePurchased(getWherePurchased());
-        prRegistrationImpl.setSerialNumber(getSerialNumber());
-        prRegistrationImpl.setProductId(getProductId());
-        prRegistrationImpl.setCompanyId(getCompanyId());
         prRegistrationImpl.setGroupId(getGroupId());
 
         prRegistrationImpl.resetOriginalValues();
@@ -453,21 +257,6 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
 
     @Override
     public void resetOriginalValues() {
-        PRRegistrationModelImpl prRegistrationModelImpl = this;
-
-        prRegistrationModelImpl._originalPrUserId = prRegistrationModelImpl._prUserId;
-
-        prRegistrationModelImpl._setOriginalPrUserId = false;
-
-        prRegistrationModelImpl._originalDatePurchased = prRegistrationModelImpl._datePurchased;
-
-        prRegistrationModelImpl._originalSerialNumber = prRegistrationModelImpl._serialNumber;
-
-        prRegistrationModelImpl._originalGroupId = prRegistrationModelImpl._groupId;
-
-        prRegistrationModelImpl._setOriginalGroupId = false;
-
-        prRegistrationModelImpl._columnBitmask = 0;
     }
 
     @Override
@@ -478,42 +267,6 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
 
         prRegistrationCacheModel.prUserId = getPrUserId();
 
-        Date datePurchased = getDatePurchased();
-
-        if (datePurchased != null) {
-            prRegistrationCacheModel.datePurchased = datePurchased.getTime();
-        } else {
-            prRegistrationCacheModel.datePurchased = Long.MIN_VALUE;
-        }
-
-        prRegistrationCacheModel.howHear = getHowHear();
-
-        String howHear = prRegistrationCacheModel.howHear;
-
-        if ((howHear != null) && (howHear.length() == 0)) {
-            prRegistrationCacheModel.howHear = null;
-        }
-
-        prRegistrationCacheModel.wherePurchased = getWherePurchased();
-
-        String wherePurchased = prRegistrationCacheModel.wherePurchased;
-
-        if ((wherePurchased != null) && (wherePurchased.length() == 0)) {
-            prRegistrationCacheModel.wherePurchased = null;
-        }
-
-        prRegistrationCacheModel.serialNumber = getSerialNumber();
-
-        String serialNumber = prRegistrationCacheModel.serialNumber;
-
-        if ((serialNumber != null) && (serialNumber.length() == 0)) {
-            prRegistrationCacheModel.serialNumber = null;
-        }
-
-        prRegistrationCacheModel.productId = getProductId();
-
-        prRegistrationCacheModel.companyId = getCompanyId();
-
         prRegistrationCacheModel.groupId = getGroupId();
 
         return prRegistrationCacheModel;
@@ -521,24 +274,12 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(19);
+        StringBundler sb = new StringBundler(7);
 
         sb.append("{registrationId=");
         sb.append(getRegistrationId());
         sb.append(", prUserId=");
         sb.append(getPrUserId());
-        sb.append(", datePurchased=");
-        sb.append(getDatePurchased());
-        sb.append(", howHear=");
-        sb.append(getHowHear());
-        sb.append(", wherePurchased=");
-        sb.append(getWherePurchased());
-        sb.append(", serialNumber=");
-        sb.append(getSerialNumber());
-        sb.append(", productId=");
-        sb.append(getProductId());
-        sb.append(", companyId=");
-        sb.append(getCompanyId());
         sb.append(", groupId=");
         sb.append(getGroupId());
         sb.append("}");
@@ -548,7 +289,7 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
 
     @Override
     public String toXmlString() {
-        StringBundler sb = new StringBundler(31);
+        StringBundler sb = new StringBundler(13);
 
         sb.append("<model><model-name>");
         sb.append("com.example.sb.model.PRRegistration");
@@ -561,30 +302,6 @@ public class PRRegistrationModelImpl extends BaseModelImpl<PRRegistration>
         sb.append(
             "<column><column-name>prUserId</column-name><column-value><![CDATA[");
         sb.append(getPrUserId());
-        sb.append("]]></column-value></column>");
-        sb.append(
-            "<column><column-name>datePurchased</column-name><column-value><![CDATA[");
-        sb.append(getDatePurchased());
-        sb.append("]]></column-value></column>");
-        sb.append(
-            "<column><column-name>howHear</column-name><column-value><![CDATA[");
-        sb.append(getHowHear());
-        sb.append("]]></column-value></column>");
-        sb.append(
-            "<column><column-name>wherePurchased</column-name><column-value><![CDATA[");
-        sb.append(getWherePurchased());
-        sb.append("]]></column-value></column>");
-        sb.append(
-            "<column><column-name>serialNumber</column-name><column-value><![CDATA[");
-        sb.append(getSerialNumber());
-        sb.append("]]></column-value></column>");
-        sb.append(
-            "<column><column-name>productId</column-name><column-value><![CDATA[");
-        sb.append(getProductId());
-        sb.append("]]></column-value></column>");
-        sb.append(
-            "<column><column-name>companyId</column-name><column-value><![CDATA[");
-        sb.append(getCompanyId());
         sb.append("]]></column-value></column>");
         sb.append(
             "<column><column-name>groupId</column-name><column-value><![CDATA[");

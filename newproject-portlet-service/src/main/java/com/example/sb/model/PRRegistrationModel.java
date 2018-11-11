@@ -1,6 +1,5 @@
 package com.example.sb.model;
 
-import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
@@ -9,8 +8,6 @@ import com.liferay.portal.service.ServiceContext;
 import com.liferay.portlet.expando.model.ExpandoBridge;
 
 import java.io.Serializable;
-
-import java.util.Date;
 
 /**
  * The base model interface for the PRRegistration service. Represents a row in the &quot;SB_PRRegistration&quot; database table, with each column mapped to a property of this class.
@@ -88,93 +85,6 @@ public interface PRRegistrationModel extends BaseModel<PRRegistration> {
      * @param prUserUuid the pr user uuid of this p r registration
      */
     public void setPrUserUuid(String prUserUuid);
-
-    /**
-     * Returns the date purchased of this p r registration.
-     *
-     * @return the date purchased of this p r registration
-     */
-    public Date getDatePurchased();
-
-    /**
-     * Sets the date purchased of this p r registration.
-     *
-     * @param datePurchased the date purchased of this p r registration
-     */
-    public void setDatePurchased(Date datePurchased);
-
-    /**
-     * Returns the how hear of this p r registration.
-     *
-     * @return the how hear of this p r registration
-     */
-    @AutoEscape
-    public String getHowHear();
-
-    /**
-     * Sets the how hear of this p r registration.
-     *
-     * @param howHear the how hear of this p r registration
-     */
-    public void setHowHear(String howHear);
-
-    /**
-     * Returns the where purchased of this p r registration.
-     *
-     * @return the where purchased of this p r registration
-     */
-    @AutoEscape
-    public String getWherePurchased();
-
-    /**
-     * Sets the where purchased of this p r registration.
-     *
-     * @param wherePurchased the where purchased of this p r registration
-     */
-    public void setWherePurchased(String wherePurchased);
-
-    /**
-     * Returns the serial number of this p r registration.
-     *
-     * @return the serial number of this p r registration
-     */
-    @AutoEscape
-    public String getSerialNumber();
-
-    /**
-     * Sets the serial number of this p r registration.
-     *
-     * @param serialNumber the serial number of this p r registration
-     */
-    public void setSerialNumber(String serialNumber);
-
-    /**
-     * Returns the product ID of this p r registration.
-     *
-     * @return the product ID of this p r registration
-     */
-    public long getProductId();
-
-    /**
-     * Sets the product ID of this p r registration.
-     *
-     * @param productId the product ID of this p r registration
-     */
-    public void setProductId(long productId);
-
-    /**
-     * Returns the company ID of this p r registration.
-     *
-     * @return the company ID of this p r registration
-     */
-    public long getCompanyId();
-
-    /**
-     * Sets the company ID of this p r registration.
-     *
-     * @param companyId the company ID of this p r registration
-     */
-    public void setCompanyId(long companyId);
 
     /**
      * Returns the group ID of this p r registration.
