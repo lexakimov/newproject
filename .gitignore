@@ -1,0 +1,12 @@
+
+*/.settings/*
+*/.classpath*
+*/.tern-project*
+.project
+/.idea/
+/.settings/
+/newproject-portlet/.settings/
+/newproject-portlet/newproject-portlet.iml
+/newproject-portlet-service/.settings/
+/newproject-portlet/target/
+/newproject-portlet-service/target/

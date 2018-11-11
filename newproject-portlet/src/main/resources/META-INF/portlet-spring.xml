@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.example.sb.service.PRRegistrationLocalService" class="com.example.sb.service.impl.PRRegistrationLocalServiceImpl" />
+	<bean id="com.example.sb.service.persistence.PRRegistrationPersistence" class="com.example.sb.service.persistence.PRRegistrationPersistenceImpl" parent="basePersistence" />
+	<bean id="com.example.sb.service.PRUserLocalService" class="com.example.sb.service.impl.PRUserLocalServiceImpl" />
+	<bean id="com.example.sb.service.persistence.PRUserPersistence" class="com.example.sb.service.persistence.PRUserPersistenceImpl" parent="basePersistence" />
+</beans>
