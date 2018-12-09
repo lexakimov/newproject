@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-	<bean id="com.example.sb.service.PRRegistrationLocalService" class="com.example.sb.service.impl.PRRegistrationLocalServiceImpl" />
-	<bean id="com.example.sb.service.persistence.PRRegistrationPersistence" class="com.example.sb.service.persistence.PRRegistrationPersistenceImpl" parent="basePersistence" />
-	<bean id="com.example.sb.service.PRUserLocalService" class="com.example.sb.service.impl.PRUserLocalServiceImpl" />
-	<bean id="com.example.sb.service.persistence.PRUserPersistence" class="com.example.sb.service.persistence.PRUserPersistenceImpl" parent="basePersistence" />
+	<bean id="com.example.sb.service.Entity1LocalService" class="com.example.sb.service.impl.Entity1LocalServiceImpl" />
+	<bean id="com.example.sb.service.persistence.Entity1Persistence" class="com.example.sb.service.persistence.Entity1PersistenceImpl" parent="basePersistence" />
+	<bean id="com.example.sb.service.Entity2LocalService" class="com.example.sb.service.impl.Entity2LocalServiceImpl" />
+	<bean id="com.example.sb.service.persistence.Entity2Persistence" class="com.example.sb.service.persistence.Entity2PersistenceImpl" parent="basePersistence" />
+	<bean id="com.example.sb.service.EntityALocalService" class="com.example.sb.service.impl.EntityALocalServiceImpl" />
+	<bean id="com.example.sb.service.persistence.EntityAPersistence" class="com.example.sb.service.persistence.EntityAPersistenceImpl" parent="basePersistence" />
 </beans>

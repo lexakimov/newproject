@@ -3,15 +3,15 @@
 <service-builder package-path="com.example.sb">
     <author>akimov</author>
     <namespace>SB</namespace>
-    <entity name="PRUser" local-service="true" remote-service="false">
-        <column name="prUserId" type="long" primary="true"/>
-        <column name="firstName" type="String"/>
-        <column name="lastName" type="String"/>
-        <column name="userRegistrations" type="Collection" />
+    <entity name="EntityA" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
     </entity>
-    <entity name="PRRegistration" local-service="true" remote-service="false">
-        <column name="registrationId" type="long" primary="true"/>
-        <column name="prUserId" type="long"/>
-        <column name="groupId" type="long"/>
+    <entity name="Entity1" local-service="true" remote-service="false">
+        <column name="id" primary="true" type="long"></column>
+        <column name="Field1" type="String"></column>
+    </entity>
+    <entity name="Entity2" local-service="true" remote-service="false">
+        <column name="id" type="long" primary="true"></column>
+        <column name="Field2" type="String"></column>
     </entity>
 </service-builder>

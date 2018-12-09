@@ -1,62 +1,58 @@
 package com.example;
 
-import com.liferay.portal.kernel.exception.PortalException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
+import javax.portlet.PortletException;
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
+
+import com.liferay.portal.kernel.dao.jdbc.OutputBlob;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 
-import javax.portlet.ActionRequest;
-import javax.portlet.ActionResponse;
-import javax.portlet.PortletException;
-import java.io.IOException;
-
 public class MyPortlet extends MVCPortlet {
-	
+
 	private static final Log log = LogFactoryUtil.getLog(MyPortlet.class);
-	
-	
+
+	@Override
+	public void serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse)
+			throws IOException, PortletException {
+		String resourceID = resourceRequest.getResourceID();
+		if ("sock".equals(resourceID)) {
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try (PrintWriter writer = resourceResponse.getWriter();) {
+				writer.println("test message");
+			}
+		}
+		super.serveResource(resourceRequest, resourceResponse);
+	}
+
 	@Override
 	public void processAction(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws IOException, PortletException {
-		log.debug("debug!");
-		log.info("\nAtributes");
-		/*Enumeration<String> attributeNames = actionRequest.getAttributeNames();
-		while (attributeNames.hasMoreElements()) {
-			String element = attributeNames.nextElement();
-			log.info(element + " : " + actionRequest.getAttribute(element));
-		}
+		//Test test = TestLocalServiceUtil.createTest(CounterLocalServiceUtil.increment(Test.class.getName()));
+		File file = new File("C:\\Users\\akimov\\Desktop\\electric_gypsy.pdf");
+		InputStream input = new FileInputStream(file);
+		OutputBlob dataOutputBlob = new OutputBlob(input, file.length());
+		//test.setData1(dataOutputBlob);
+		//TestLocalServiceUtil.updateTest(test);
+		input.close();
 
-		log.info("\nParams");
-		for (Entry<String, String[]> string : actionRequest.getParameterMap().entrySet()) {
-			log.info(string.getKey() + " - " + Arrays.deepToString(string.getValue()));
-		}
-
-		log.info("\nRender Params");
-		for (Entry<String, String[]> string : actionResponse.getRenderParameterMap().entrySet()) {
-			log.info(string.getKey() + " - " + Arrays.deepToString(string.getValue()));
-		}*/
-		
-		/*try {
-		*//*	FirstEntity entity = FirstEntityLocalServiceUtil.getFirstEntity(1);
-			entity.setTestId(ParamUtil.getLong(actionRequest, "testAuiInput", 0));
-			FirstEntityLocalServiceUtil.updateFirstEntity(entity);*//*
-		} catch (SystemException | PortalException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-
-		// WebappClassLoader classloader =
-		// (WebappClassLoader)PortletBeanLocatorUtil.locate("portletClassLoader");
-
-		// System.out.println(classloader.getJarPath());
-		/*
-		 * for (String string :
-		 * PortletBeanLocatorUtil.getBeanLocator().getNames()) {
-		 * System.out.println(string); }
-		 */
-
-		copyRequestParameters = true;
-		super.processAction(actionRequest, actionResponse);
 	}
+	
+	
+	
 }

@@ -7,34 +7,48 @@
 			<access>PROPERTY</access>
 		</persistence-unit-defaults>
 	</persistence-unit-metadata>
-	<mapped-superclass class="com.example.sb.model.impl.PRRegistrationModelImpl">
+	<mapped-superclass class="com.example.sb.model.impl.Entity1ModelImpl">
 		<attributes>
-			<id name="registrationId" />
-			<basic name="prUserId" />
-			<basic name="groupId" />
+			<id name="id">
+				<column name="ID_" />
+			</id>
+			<basic name="Field1" />
 			<transient name="modelAttributes" />
-			<transient name="prUserUuid" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
 		</attributes>
 	</mapped-superclass>
-	<mapped-superclass class="com.example.sb.model.impl.PRUserModelImpl">
+	<mapped-superclass class="com.example.sb.model.impl.Entity2ModelImpl">
 		<attributes>
-			<id name="prUserId" />
-			<basic name="firstName" />
-			<basic name="lastName" />
+			<id name="id">
+				<column name="ID_" />
+			</id>
+			<basic name="Field2" />
 			<transient name="modelAttributes" />
-			<transient name="prUserUuid" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
 		</attributes>
 	</mapped-superclass>
-	<entity class="com.example.sb.model.impl.PRRegistrationImpl" name="PRRegistration">
-		<table name="SB_PRRegistration" />
+	<mapped-superclass class="com.example.sb.model.impl.EntityAModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="ID_" />
+			</id>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.example.sb.model.impl.Entity1Impl" name="Entity1">
+		<table name="SB_Entity1" />
 		<attributes />
 	</entity>
-	<entity class="com.example.sb.model.impl.PRUserImpl" name="PRUser">
-		<table name="SB_PRUser" />
+	<entity class="com.example.sb.model.impl.Entity2Impl" name="Entity2">
+		<table name="SB_Entity2" />
+		<attributes />
+	</entity>
+	<entity class="com.example.sb.model.impl.EntityAImpl" name="EntityA">
+		<table name="SB_EntityA" />
 		<attributes />
 	</entity>
 </entity-mappings>
