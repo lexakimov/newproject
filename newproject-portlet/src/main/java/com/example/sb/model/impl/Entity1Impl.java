@@ -9,7 +9,7 @@ package com.example.sb.model.impl;
  *
  * @author akimov
  */
-public class Entity1Impl extends Entity1BaseImpl {
+public class Entity1Impl extends Entity1BaseImpl implements TomskRequest {
     /*
      * NOTE FOR DEVELOPERS:
      *

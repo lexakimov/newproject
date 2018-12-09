@@ -37,6 +37,8 @@ public class Entity2Wrapper implements Entity2, ModelWrapper<Entity2> {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
         attributes.put("id", getId());
+        attributes.put("Status", getStatus());
+        attributes.put("RequestId", getRequestId());
         attributes.put("Field2", getField2());
 
         return attributes;
@@ -48,6 +50,18 @@ public class Entity2Wrapper implements Entity2, ModelWrapper<Entity2> {
 
         if (id != null) {
             setId(id);
+        }
+
+        String Status = (String) attributes.get("Status");
+
+        if (Status != null) {
+            setStatus(Status);
+        }
+
+        String RequestId = (String) attributes.get("RequestId");
+
+        if (RequestId != null) {
+            setRequestId(RequestId);
         }
 
         String Field2 = (String) attributes.get("Field2");
@@ -95,6 +109,46 @@ public class Entity2Wrapper implements Entity2, ModelWrapper<Entity2> {
     @Override
     public void setId(long id) {
         _entity2.setId(id);
+    }
+
+    /**
+    * Returns the status of this entity2.
+    *
+    * @return the status of this entity2
+    */
+    @Override
+    public java.lang.String getStatus() {
+        return _entity2.getStatus();
+    }
+
+    /**
+    * Sets the status of this entity2.
+    *
+    * @param Status the status of this entity2
+    */
+    @Override
+    public void setStatus(java.lang.String Status) {
+        _entity2.setStatus(Status);
+    }
+
+    /**
+    * Returns the request ID of this entity2.
+    *
+    * @return the request ID of this entity2
+    */
+    @Override
+    public java.lang.String getRequestId() {
+        return _entity2.getRequestId();
+    }
+
+    /**
+    * Sets the request ID of this entity2.
+    *
+    * @param RequestId the request ID of this entity2
+    */
+    @Override
+    public void setRequestId(java.lang.String RequestId) {
+        _entity2.setRequestId(RequestId);
     }
 
     /**

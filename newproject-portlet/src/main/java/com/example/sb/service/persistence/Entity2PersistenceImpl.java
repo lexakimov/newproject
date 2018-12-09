@@ -326,6 +326,8 @@ public class Entity2PersistenceImpl extends BasePersistenceImpl<Entity2>
         entity2Impl.setPrimaryKey(entity2.getPrimaryKey());
 
         entity2Impl.setId(entity2.getId());
+        entity2Impl.setStatus(entity2.getStatus());
+        entity2Impl.setRequestId(entity2.getRequestId());
         entity2Impl.setField2(entity2.getField2());
 
         return entity2Impl;

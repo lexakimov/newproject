@@ -58,6 +58,36 @@ public interface Entity2Model extends BaseModel<Entity2> {
     public void setId(long id);
 
     /**
+     * Returns the status of this entity2.
+     *
+     * @return the status of this entity2
+     */
+    @AutoEscape
+    public String getStatus();
+
+    /**
+     * Sets the status of this entity2.
+     *
+     * @param Status the status of this entity2
+     */
+    public void setStatus(String Status);
+
+    /**
+     * Returns the request ID of this entity2.
+     *
+     * @return the request ID of this entity2
+     */
+    @AutoEscape
+    public String getRequestId();
+
+    /**
+     * Sets the request ID of this entity2.
+     *
+     * @param RequestId the request ID of this entity2
+     */
+    public void setRequestId(String RequestId);
+
+    /**
      * Returns the field2 of this entity2.
      *
      * @return the field2 of this entity2

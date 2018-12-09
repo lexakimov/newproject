@@ -20,6 +20,8 @@ import java.util.Map;
 
 public class Entity1Clp extends BaseModelImpl<Entity1> implements Entity1 {
     private long _id;
+    private String _Status;
+    private String _RequestId;
     private String _Field1;
     private BaseModel<?> _entity1RemoteModel;
     private Class<?> _clpSerializerClass = com.example.sb.service.ClpSerializer.class;
@@ -62,6 +64,8 @@ public class Entity1Clp extends BaseModelImpl<Entity1> implements Entity1 {
         Map<String, Object> attributes = new HashMap<String, Object>();
 
         attributes.put("id", getId());
+        attributes.put("Status", getStatus());
+        attributes.put("RequestId", getRequestId());
         attributes.put("Field1", getField1());
 
         return attributes;
@@ -73,6 +77,18 @@ public class Entity1Clp extends BaseModelImpl<Entity1> implements Entity1 {
 
         if (id != null) {
             setId(id);
+        }
+
+        String Status = (String) attributes.get("Status");
+
+        if (Status != null) {
+            setStatus(Status);
+        }
+
+        String RequestId = (String) attributes.get("RequestId");
+
+        if (RequestId != null) {
+            setRequestId(RequestId);
         }
 
         String Field1 = (String) attributes.get("Field1");
@@ -98,6 +114,50 @@ public class Entity1Clp extends BaseModelImpl<Entity1> implements Entity1 {
                 Method method = clazz.getMethod("setId", long.class);
 
                 method.invoke(_entity1RemoteModel, id);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
+    }
+
+    @Override
+    public String getStatus() {
+        return _Status;
+    }
+
+    @Override
+    public void setStatus(String Status) {
+        _Status = Status;
+
+        if (_entity1RemoteModel != null) {
+            try {
+                Class<?> clazz = _entity1RemoteModel.getClass();
+
+                Method method = clazz.getMethod("setStatus", String.class);
+
+                method.invoke(_entity1RemoteModel, Status);
+            } catch (Exception e) {
+                throw new UnsupportedOperationException(e);
+            }
+        }
+    }
+
+    @Override
+    public String getRequestId() {
+        return _RequestId;
+    }
+
+    @Override
+    public void setRequestId(String RequestId) {
+        _RequestId = RequestId;
+
+        if (_entity1RemoteModel != null) {
+            try {
+                Class<?> clazz = _entity1RemoteModel.getClass();
+
+                Method method = clazz.getMethod("setRequestId", String.class);
+
+                method.invoke(_entity1RemoteModel, RequestId);
             } catch (Exception e) {
                 throw new UnsupportedOperationException(e);
             }
@@ -194,6 +254,8 @@ public class Entity1Clp extends BaseModelImpl<Entity1> implements Entity1 {
         Entity1Clp clone = new Entity1Clp();
 
         clone.setId(getId());
+        clone.setStatus(getStatus());
+        clone.setRequestId(getRequestId());
         clone.setField1(getField1());
 
         return clone;
@@ -244,10 +306,14 @@ public class Entity1Clp extends BaseModelImpl<Entity1> implements Entity1 {
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(5);
+        StringBundler sb = new StringBundler(9);
 
         sb.append("{id=");
         sb.append(getId());
+        sb.append(", Status=");
+        sb.append(getStatus());
+        sb.append(", RequestId=");
+        sb.append(getRequestId());
         sb.append(", Field1=");
         sb.append(getField1());
         sb.append("}");
@@ -257,7 +323,7 @@ public class Entity1Clp extends BaseModelImpl<Entity1> implements Entity1 {
 
     @Override
     public String toXmlString() {
-        StringBundler sb = new StringBundler(10);
+        StringBundler sb = new StringBundler(16);
 
         sb.append("<model><model-name>");
         sb.append("com.example.sb.model.Entity1");
@@ -266,6 +332,14 @@ public class Entity1Clp extends BaseModelImpl<Entity1> implements Entity1 {
         sb.append(
             "<column><column-name>id</column-name><column-value><![CDATA[");
         sb.append(getId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>Status</column-name><column-value><![CDATA[");
+        sb.append(getStatus());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>RequestId</column-name><column-value><![CDATA[");
+        sb.append(getRequestId());
         sb.append("]]></column-value></column>");
         sb.append(
             "<column><column-name>Field1</column-name><column-value><![CDATA[");

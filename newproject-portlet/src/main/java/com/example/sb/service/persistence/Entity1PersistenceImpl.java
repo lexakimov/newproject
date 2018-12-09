@@ -326,6 +326,8 @@ public class Entity1PersistenceImpl extends BasePersistenceImpl<Entity1>
         entity1Impl.setPrimaryKey(entity1.getPrimaryKey());
 
         entity1Impl.setId(entity1.getId());
+        entity1Impl.setStatus(entity1.getStatus());
+        entity1Impl.setRequestId(entity1.getRequestId());
         entity1Impl.setField1(entity1.getField1());
 
         return entity1Impl;

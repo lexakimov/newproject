@@ -20,14 +20,20 @@ import java.io.ObjectOutput;
  */
 public class Entity2CacheModel implements CacheModel<Entity2>, Externalizable {
     public long id;
+    public String Status;
+    public String RequestId;
     public String Field2;
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(5);
+        StringBundler sb = new StringBundler(9);
 
         sb.append("{id=");
         sb.append(id);
+        sb.append(", Status=");
+        sb.append(Status);
+        sb.append(", RequestId=");
+        sb.append(RequestId);
         sb.append(", Field2=");
         sb.append(Field2);
         sb.append("}");
@@ -40,6 +46,18 @@ public class Entity2CacheModel implements CacheModel<Entity2>, Externalizable {
         Entity2Impl entity2Impl = new Entity2Impl();
 
         entity2Impl.setId(id);
+
+        if (Status == null) {
+            entity2Impl.setStatus(StringPool.BLANK);
+        } else {
+            entity2Impl.setStatus(Status);
+        }
+
+        if (RequestId == null) {
+            entity2Impl.setRequestId(StringPool.BLANK);
+        } else {
+            entity2Impl.setRequestId(RequestId);
+        }
 
         if (Field2 == null) {
             entity2Impl.setField2(StringPool.BLANK);
@@ -55,6 +73,8 @@ public class Entity2CacheModel implements CacheModel<Entity2>, Externalizable {
     @Override
     public void readExternal(ObjectInput objectInput) throws IOException {
         id = objectInput.readLong();
+        Status = objectInput.readUTF();
+        RequestId = objectInput.readUTF();
         Field2 = objectInput.readUTF();
     }
 
@@ -62,6 +82,18 @@ public class Entity2CacheModel implements CacheModel<Entity2>, Externalizable {
     public void writeExternal(ObjectOutput objectOutput)
         throws IOException {
         objectOutput.writeLong(id);
+
+        if (Status == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(Status);
+        }
+
+        if (RequestId == null) {
+            objectOutput.writeUTF(StringPool.BLANK);
+        } else {
+            objectOutput.writeUTF(RequestId);
+        }
 
         if (Field2 == null) {
             objectOutput.writeUTF(StringPool.BLANK);

@@ -12,6 +12,8 @@
 			<id name="id">
 				<column name="ID_" />
 			</id>
+			<basic name="Status" />
+			<basic name="RequestId" />
 			<basic name="Field1" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
@@ -23,6 +25,8 @@
 			<id name="id">
 				<column name="ID_" />
 			</id>
+			<basic name="Status" />
+			<basic name="RequestId" />
 			<basic name="Field2" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />

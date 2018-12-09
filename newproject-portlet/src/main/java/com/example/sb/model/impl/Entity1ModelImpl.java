@@ -45,9 +45,11 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
     public static final String TABLE_NAME = "SB_Entity1";
     public static final Object[][] TABLE_COLUMNS = {
             { "id_", Types.BIGINT },
+            { "Status", Types.VARCHAR },
+            { "RequestId", Types.VARCHAR },
             { "Field1", Types.VARCHAR }
         };
-    public static final String TABLE_SQL_CREATE = "create table SB_Entity1 (id_ LONG not null primary key,Field1 VARCHAR(75) null)";
+    public static final String TABLE_SQL_CREATE = "create table SB_Entity1 (id_ LONG not null primary key,Status VARCHAR(75) null,RequestId VARCHAR(75) null,Field1 VARCHAR(75) null)";
     public static final String TABLE_SQL_DROP = "drop table SB_Entity1";
     public static final String ORDER_BY_JPQL = " ORDER BY entity1.id ASC";
     public static final String ORDER_BY_SQL = " ORDER BY SB_Entity1.id_ ASC";
@@ -68,6 +70,8 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
             Entity1.class
         };
     private long _id;
+    private String _Status;
+    private String _RequestId;
     private String _Field1;
     private Entity1 _escapedModel;
 
@@ -109,6 +113,8 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
         Map<String, Object> attributes = new HashMap<String, Object>();
 
         attributes.put("id", getId());
+        attributes.put("Status", getStatus());
+        attributes.put("RequestId", getRequestId());
         attributes.put("Field1", getField1());
 
         return attributes;
@@ -120,6 +126,18 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
 
         if (id != null) {
             setId(id);
+        }
+
+        String Status = (String) attributes.get("Status");
+
+        if (Status != null) {
+            setStatus(Status);
+        }
+
+        String RequestId = (String) attributes.get("RequestId");
+
+        if (RequestId != null) {
+            setRequestId(RequestId);
         }
 
         String Field1 = (String) attributes.get("Field1");
@@ -137,6 +155,34 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
     @Override
     public void setId(long id) {
         _id = id;
+    }
+
+    @Override
+    public String getStatus() {
+        if (_Status == null) {
+            return StringPool.BLANK;
+        } else {
+            return _Status;
+        }
+    }
+
+    @Override
+    public void setStatus(String Status) {
+        _Status = Status;
+    }
+
+    @Override
+    public String getRequestId() {
+        if (_RequestId == null) {
+            return StringPool.BLANK;
+        } else {
+            return _RequestId;
+        }
+    }
+
+    @Override
+    public void setRequestId(String RequestId) {
+        _RequestId = RequestId;
     }
 
     @Override
@@ -181,6 +227,8 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
         Entity1Impl entity1Impl = new Entity1Impl();
 
         entity1Impl.setId(getId());
+        entity1Impl.setStatus(getStatus());
+        entity1Impl.setRequestId(getRequestId());
         entity1Impl.setField1(getField1());
 
         entity1Impl.resetOriginalValues();
@@ -237,6 +285,22 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
 
         entity1CacheModel.id = getId();
 
+        entity1CacheModel.Status = getStatus();
+
+        String Status = entity1CacheModel.Status;
+
+        if ((Status != null) && (Status.length() == 0)) {
+            entity1CacheModel.Status = null;
+        }
+
+        entity1CacheModel.RequestId = getRequestId();
+
+        String RequestId = entity1CacheModel.RequestId;
+
+        if ((RequestId != null) && (RequestId.length() == 0)) {
+            entity1CacheModel.RequestId = null;
+        }
+
         entity1CacheModel.Field1 = getField1();
 
         String Field1 = entity1CacheModel.Field1;
@@ -250,10 +314,14 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
 
     @Override
     public String toString() {
-        StringBundler sb = new StringBundler(5);
+        StringBundler sb = new StringBundler(9);
 
         sb.append("{id=");
         sb.append(getId());
+        sb.append(", Status=");
+        sb.append(getStatus());
+        sb.append(", RequestId=");
+        sb.append(getRequestId());
         sb.append(", Field1=");
         sb.append(getField1());
         sb.append("}");
@@ -263,7 +331,7 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
 
     @Override
     public String toXmlString() {
-        StringBundler sb = new StringBundler(10);
+        StringBundler sb = new StringBundler(16);
 
         sb.append("<model><model-name>");
         sb.append("com.example.sb.model.Entity1");
@@ -272,6 +340,14 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
         sb.append(
             "<column><column-name>id</column-name><column-value><![CDATA[");
         sb.append(getId());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>Status</column-name><column-value><![CDATA[");
+        sb.append(getStatus());
+        sb.append("]]></column-value></column>");
+        sb.append(
+            "<column><column-name>RequestId</column-name><column-value><![CDATA[");
+        sb.append(getRequestId());
         sb.append("]]></column-value></column>");
         sb.append(
             "<column><column-name>Field1</column-name><column-value><![CDATA[");

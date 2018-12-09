@@ -13,6 +13,8 @@ import java.util.List;
  */
 public class Entity1Soap implements Serializable {
     private long _id;
+    private String _Status;
+    private String _RequestId;
     private String _Field1;
 
     public Entity1Soap() {
@@ -22,6 +24,8 @@ public class Entity1Soap implements Serializable {
         Entity1Soap soapModel = new Entity1Soap();
 
         soapModel.setId(model.getId());
+        soapModel.setStatus(model.getStatus());
+        soapModel.setRequestId(model.getRequestId());
         soapModel.setField1(model.getField1());
 
         return soapModel;
@@ -77,6 +81,22 @@ public class Entity1Soap implements Serializable {
 
     public void setId(long id) {
         _id = id;
+    }
+
+    public String getStatus() {
+        return _Status;
+    }
+
+    public void setStatus(String Status) {
+        _Status = Status;
+    }
+
+    public String getRequestId() {
+        return _RequestId;
+    }
+
+    public void setRequestId(String RequestId) {
+        _RequestId = RequestId;
     }
 
     public String getField1() {
