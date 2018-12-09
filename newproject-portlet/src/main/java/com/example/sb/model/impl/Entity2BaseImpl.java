@@ -1,9 +1,6 @@
 package com.example.sb.model.impl;
 
 import com.example.sb.model.Entity2;
-import com.example.sb.service.Entity2LocalServiceUtil;
-
-import com.liferay.portal.kernel.exception.SystemException;
 
 /**
  * The extended model base implementation for the Entity2 service. Represents a row in the &quot;SB_Entity2&quot; database table, with each column mapped to a property of this class.
@@ -24,12 +21,4 @@ public abstract class Entity2BaseImpl extends Entity2ModelImpl
      *
      * Never modify or reference this class directly. All methods that expect a entity2 model instance should use the {@link Entity2} interface instead.
      */
-    @Override
-    public void persist() throws SystemException {
-        if (this.isNew()) {
-            Entity2LocalServiceUtil.addEntity2(this);
-        } else {
-            Entity2LocalServiceUtil.updateEntity2(this);
-        }
-    }
 }

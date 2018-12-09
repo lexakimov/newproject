@@ -1,10 +1,8 @@
 package com.example.sb.model;
 
 import com.example.sb.service.ClpSerializer;
-import com.example.sb.service.Entity2LocalServiceUtil;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.model.BaseModel;
@@ -232,15 +230,6 @@ public class Entity2Clp extends BaseModelImpl<Entity2> implements Entity2 {
         }
 
         return returnValue;
-    }
-
-    @Override
-    public void persist() throws SystemException {
-        if (this.isNew()) {
-            Entity2LocalServiceUtil.addEntity2(this);
-        } else {
-            Entity2LocalServiceUtil.updateEntity2(this);
-        }
     }
 
     @Override

@@ -1,6 +1,6 @@
 package com.example.sb.model.impl;
 
-public interface TomskRequest {
+public interface AbstractEntity {
 	String getStatus();
 
 	String getRequestId();

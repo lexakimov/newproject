@@ -1,7 +1,5 @@
 package com.example.sb.model;
 
-import com.liferay.portal.model.PersistedModel;
-
 /**
  * The extended model interface for the Entity2 service. Represents a row in the &quot;SB_Entity2&quot; database table, with each column mapped to a property of this class.
  *
@@ -11,7 +9,7 @@ import com.liferay.portal.model.PersistedModel;
  * @see com.example.sb.model.impl.Entity2ModelImpl
  * @generated
  */
-public interface Entity2 extends Entity2Model, PersistedModel {
+public interface Entity2 extends Entity2Model {
     /*
      * NOTE FOR DEVELOPERS:
      *
