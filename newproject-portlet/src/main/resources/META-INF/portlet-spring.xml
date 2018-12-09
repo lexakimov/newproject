@@ -5,6 +5,4 @@
 	<bean id="com.example.sb.service.persistence.Entity1Persistence" class="com.example.sb.service.persistence.Entity1PersistenceImpl" parent="basePersistence" />
 	<bean id="com.example.sb.service.Entity2LocalService" class="com.example.sb.service.impl.Entity2LocalServiceImpl" />
 	<bean id="com.example.sb.service.persistence.Entity2Persistence" class="com.example.sb.service.persistence.Entity2PersistenceImpl" parent="basePersistence" />
-	<bean id="com.example.sb.service.EntityALocalService" class="com.example.sb.service.impl.EntityALocalServiceImpl" />
-	<bean id="com.example.sb.service.persistence.EntityAPersistence" class="com.example.sb.service.persistence.EntityAPersistenceImpl" parent="basePersistence" />
 </beans>

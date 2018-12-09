@@ -13,7 +13,4 @@
 		<field name="RequestId" type="String" />
 		<field name="Field2" type="String" />
 	</model>
-	<model name="com.example.sb.model.EntityA">
-		<field name="id" type="long" />
-	</model>
 </model-hints>

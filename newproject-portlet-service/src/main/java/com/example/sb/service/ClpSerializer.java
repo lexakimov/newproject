@@ -2,7 +2,6 @@ package com.example.sb.service;
 
 import com.example.sb.model.Entity1Clp;
 import com.example.sb.model.Entity2Clp;
-import com.example.sb.model.EntityAClp;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -98,10 +97,6 @@ public class ClpSerializer {
             return translateInputEntity2(oldModel);
         }
 
-        if (oldModelClassName.equals(EntityAClp.class.getName())) {
-            return translateInputEntityA(oldModel);
-        }
-
         return oldModel;
     }
 
@@ -131,16 +126,6 @@ public class ClpSerializer {
         Entity2Clp oldClpModel = (Entity2Clp) oldModel;
 
         BaseModel<?> newModel = oldClpModel.getEntity2RemoteModel();
-
-        newModel.setModelAttributes(oldClpModel.getModelAttributes());
-
-        return newModel;
-    }
-
-    public static Object translateInputEntityA(BaseModel<?> oldModel) {
-        EntityAClp oldClpModel = (EntityAClp) oldModel;
-
-        BaseModel<?> newModel = oldClpModel.getEntityARemoteModel();
 
         newModel.setModelAttributes(oldClpModel.getModelAttributes());
 
@@ -198,40 +183,6 @@ public class ClpSerializer {
 
         if (oldModelClassName.equals("com.example.sb.model.impl.Entity2Impl")) {
             return translateOutputEntity2(oldModel);
-        } else if (oldModelClassName.endsWith("Clp")) {
-            try {
-                ClassLoader classLoader = ClpSerializer.class.getClassLoader();
-
-                Method getClpSerializerClassMethod = oldModelClass.getMethod(
-                        "getClpSerializerClass");
-
-                Class<?> oldClpSerializerClass = (Class<?>) getClpSerializerClassMethod.invoke(oldModel);
-
-                Class<?> newClpSerializerClass = classLoader.loadClass(oldClpSerializerClass.getName());
-
-                Method translateOutputMethod = newClpSerializerClass.getMethod("translateOutput",
-                        BaseModel.class);
-
-                Class<?> oldModelModelClass = oldModel.getModelClass();
-
-                Method getRemoteModelMethod = oldModelClass.getMethod("get" +
-                        oldModelModelClass.getSimpleName() + "RemoteModel");
-
-                Object oldRemoteModel = getRemoteModelMethod.invoke(oldModel);
-
-                BaseModel<?> newModel = (BaseModel<?>) translateOutputMethod.invoke(null,
-                        oldRemoteModel);
-
-                return newModel;
-            } catch (Throwable t) {
-                if (_log.isInfoEnabled()) {
-                    _log.info("Unable to translate " + oldModelClassName, t);
-                }
-            }
-        }
-
-        if (oldModelClassName.equals("com.example.sb.model.impl.EntityAImpl")) {
-            return translateOutputEntityA(oldModel);
         } else if (oldModelClassName.endsWith("Clp")) {
             try {
                 ClassLoader classLoader = ClpSerializer.class.getClassLoader();
@@ -348,10 +299,6 @@ public class ClpSerializer {
             return new com.example.sb.NoSuchEntity2Exception();
         }
 
-        if (className.equals("com.example.sb.NoSuchEntityAException")) {
-            return new com.example.sb.NoSuchEntityAException();
-        }
-
         return throwable;
     }
 
@@ -371,16 +318,6 @@ public class ClpSerializer {
         newModel.setModelAttributes(oldModel.getModelAttributes());
 
         newModel.setEntity2RemoteModel(oldModel);
-
-        return newModel;
-    }
-
-    public static Object translateOutputEntityA(BaseModel<?> oldModel) {
-        EntityAClp newModel = new EntityAClp();
-
-        newModel.setModelAttributes(oldModel.getModelAttributes());
-
-        newModel.setEntityARemoteModel(oldModel);
 
         return newModel;
     }

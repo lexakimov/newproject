@@ -41,10 +41,10 @@ public class Entity2LocalServiceClpInvoker {
     private String[] _methodParameterTypes14;
     private String _methodName15;
     private String[] _methodParameterTypes15;
-    private String _methodName40;
-    private String[] _methodParameterTypes40;
-    private String _methodName41;
-    private String[] _methodParameterTypes41;
+    private String _methodName36;
+    private String[] _methodParameterTypes36;
+    private String _methodName37;
+    private String[] _methodParameterTypes37;
 
     public Entity2LocalServiceClpInvoker() {
         _methodName0 = "addEntity2";
@@ -123,13 +123,13 @@ public class Entity2LocalServiceClpInvoker {
 
         _methodParameterTypes15 = new String[] { "com.example.sb.model.Entity2" };
 
-        _methodName40 = "getBeanIdentifier";
+        _methodName36 = "getBeanIdentifier";
 
-        _methodParameterTypes40 = new String[] {  };
+        _methodParameterTypes36 = new String[] {  };
 
-        _methodName41 = "setBeanIdentifier";
+        _methodName37 = "setBeanIdentifier";
 
-        _methodParameterTypes41 = new String[] { "java.lang.String" };
+        _methodParameterTypes37 = new String[] { "java.lang.String" };
     }
 
     public Object invokeMethod(String name, String[] parameterTypes,
@@ -221,13 +221,13 @@ public class Entity2LocalServiceClpInvoker {
             return Entity2LocalServiceUtil.updateEntity2((com.example.sb.model.Entity2) arguments[0]);
         }
 
-        if (_methodName40.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes40, parameterTypes)) {
+        if (_methodName36.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes36, parameterTypes)) {
             return Entity2LocalServiceUtil.getBeanIdentifier();
         }
 
-        if (_methodName41.equals(name) &&
-                Arrays.deepEquals(_methodParameterTypes41, parameterTypes)) {
+        if (_methodName37.equals(name) &&
+                Arrays.deepEquals(_methodParameterTypes37, parameterTypes)) {
             Entity2LocalServiceUtil.setBeanIdentifier((java.lang.String) arguments[0]);
 
             return null;

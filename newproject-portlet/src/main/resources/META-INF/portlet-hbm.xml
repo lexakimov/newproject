@@ -4,7 +4,6 @@
 <hibernate-mapping default-lazy="false" auto-import="false">
 	<import class="com.example.sb.model.Entity1" />
 	<import class="com.example.sb.model.Entity2" />
-	<import class="com.example.sb.model.EntityA" />
 	<class name="com.example.sb.model.impl.Entity1Impl" table="SB_Entity1">
 		<cache usage="read-write" />
 		<id name="id" column="id_" type="long">
@@ -22,11 +21,5 @@
 		<property name="Status" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="RequestId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="Field2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-	</class>
-	<class name="com.example.sb.model.impl.EntityAImpl" table="SB_EntityA">
-		<cache usage="read-write" />
-		<id name="id" column="id_" type="long">
-			<generator class="assigned" />
-		</id>
 	</class>
 </hibernate-mapping>

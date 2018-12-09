@@ -3,7 +3,6 @@ package com.example.sb.service.messaging;
 import com.example.sb.service.ClpSerializer;
 import com.example.sb.service.Entity1LocalServiceUtil;
 import com.example.sb.service.Entity2LocalServiceUtil;
-import com.example.sb.service.EntityALocalServiceUtil;
 
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
@@ -24,8 +23,6 @@ public class ClpMessageListener extends BaseMessageListener {
             Entity1LocalServiceUtil.clearService();
 
             Entity2LocalServiceUtil.clearService();
-
-            EntityALocalServiceUtil.clearService();
         }
     }
 }

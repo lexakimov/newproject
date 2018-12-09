@@ -4,7 +4,6 @@ import com.example.sb.model.Entity1;
 import com.example.sb.service.Entity1LocalService;
 import com.example.sb.service.persistence.Entity1Persistence;
 import com.example.sb.service.persistence.Entity2Persistence;
-import com.example.sb.service.persistence.EntityAPersistence;
 
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.bean.IdentifiableBean;
@@ -51,10 +50,6 @@ public abstract class Entity1LocalServiceBaseImpl extends BaseLocalServiceImpl
     protected com.example.sb.service.Entity2LocalService entity2LocalService;
     @BeanReference(type = Entity2Persistence.class)
     protected Entity2Persistence entity2Persistence;
-    @BeanReference(type = com.example.sb.service.EntityALocalService.class)
-    protected com.example.sb.service.EntityALocalService entityALocalService;
-    @BeanReference(type = EntityAPersistence.class)
-    protected EntityAPersistence entityAPersistence;
     @BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
     protected com.liferay.counter.service.CounterLocalService counterLocalService;
     @BeanReference(type = com.liferay.portal.service.ResourceLocalService.class)
@@ -358,43 +353,6 @@ public abstract class Entity1LocalServiceBaseImpl extends BaseLocalServiceImpl
      */
     public void setEntity2Persistence(Entity2Persistence entity2Persistence) {
         this.entity2Persistence = entity2Persistence;
-    }
-
-    /**
-     * Returns the entity a local service.
-     *
-     * @return the entity a local service
-     */
-    public com.example.sb.service.EntityALocalService getEntityALocalService() {
-        return entityALocalService;
-    }
-
-    /**
-     * Sets the entity a local service.
-     *
-     * @param entityALocalService the entity a local service
-     */
-    public void setEntityALocalService(
-        com.example.sb.service.EntityALocalService entityALocalService) {
-        this.entityALocalService = entityALocalService;
-    }
-
-    /**
-     * Returns the entity a persistence.
-     *
-     * @return the entity a persistence
-     */
-    public EntityAPersistence getEntityAPersistence() {
-        return entityAPersistence;
-    }
-
-    /**
-     * Sets the entity a persistence.
-     *
-     * @param entityAPersistence the entity a persistence
-     */
-    public void setEntityAPersistence(EntityAPersistence entityAPersistence) {
-        this.entityAPersistence = entityAPersistence;
     }
 
     /**
