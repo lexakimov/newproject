@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class is used by SOAP remote services.
+ * This class is used by SOAP remote services, specifically {@link com.example.sb.service.http.Entity1ServiceSoap}.
  *
  * @author akimov
+ * @see com.example.sb.service.http.Entity1ServiceSoap
  * @generated
  */
 public class Entity1Soap implements Serializable {

@@ -20,25 +20,8 @@
 			<transient name="primaryKeyObj" />
 		</attributes>
 	</mapped-superclass>
-	<mapped-superclass class="com.example.sb.model.impl.Entity2ModelImpl">
-		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
-			<basic name="Status" />
-			<basic name="RequestId" />
-			<basic name="Field2" />
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
-		</attributes>
-	</mapped-superclass>
 	<entity class="com.example.sb.model.impl.Entity1Impl" name="Entity1">
 		<table name="SB_Entity1" />
-		<attributes />
-	</entity>
-	<entity class="com.example.sb.model.impl.Entity2Impl" name="Entity2">
-		<table name="SB_Entity2" />
 		<attributes />
 	</entity>
 </entity-mappings>

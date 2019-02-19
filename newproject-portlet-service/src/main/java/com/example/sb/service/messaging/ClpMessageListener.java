@@ -1,6 +1,8 @@
 package com.example.sb.service.messaging;
 
 import com.example.sb.service.ClpSerializer;
+import com.example.sb.service.Entity1LocalServiceUtil;
+import com.example.sb.service.Entity1ServiceUtil;
 
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
@@ -18,6 +20,9 @@ public class ClpMessageListener extends BaseMessageListener {
 
         if (command.equals("undeploy") &&
                 servletContextName.equals(getServletContextName())) {
+            Entity1LocalServiceUtil.clearService();
+
+            Entity1ServiceUtil.clearService();
         }
     }
 }

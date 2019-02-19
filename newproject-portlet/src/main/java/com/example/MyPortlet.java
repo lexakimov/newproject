@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.Properties;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -42,7 +43,7 @@ public class MyPortlet extends MVCPortlet {
 
 	@Override
 	public void processAction(ActionRequest actionRequest, ActionResponse actionResponse)
-			throws IOException, PortletException {
+			throws IOException {
 		//Test test = TestLocalServiceUtil.createTest(CounterLocalServiceUtil.increment(Test.class.getName()));
 		File file = new File("C:\\Users\\akimov\\Desktop\\electric_gypsy.pdf");
 		InputStream input = new FileInputStream(file);
@@ -51,6 +52,20 @@ public class MyPortlet extends MVCPortlet {
 		//TestLocalServiceUtil.updateTest(test);
 		input.close();
 
+	}
+
+
+	public void testAction() {
+		double a = 3;
+		double d = 5;
+		log.info(a / d);
+
+	}
+
+	public static void main(String[] args) {
+		double a = 3;
+		double d = 5;
+		System.out.println(a / d);
 	}
 	
 	

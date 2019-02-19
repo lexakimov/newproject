@@ -7,10 +7,4 @@
 		<field name="RequestId" type="String" />
 		<field name="Field1" type="String" />
 	</model>
-	<model name="com.example.sb.model.Entity2">
-		<field name="id" type="long" />
-		<field name="Status" type="String" />
-		<field name="RequestId" type="String" />
-		<field name="Field2" type="String" />
-	</model>
 </model-hints>

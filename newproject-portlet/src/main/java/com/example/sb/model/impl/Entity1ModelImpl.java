@@ -2,8 +2,10 @@ package com.example.sb.model.impl;
 
 import com.example.sb.model.Entity1;
 import com.example.sb.model.Entity1Model;
+import com.example.sb.model.Entity1Soap;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
+import com.liferay.portal.kernel.json.JSON;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -19,7 +21,9 @@ import java.io.Serializable;
 
 import java.sql.Types;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,6 +39,7 @@ import java.util.Map;
  * @see com.example.sb.model.Entity1Model
  * @generated
  */
+@JSON(strict = true)
 public class Entity1ModelImpl extends BaseModelImpl<Entity1>
     implements Entity1Model {
     /*
@@ -76,6 +81,47 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
     private Entity1 _escapedModel;
 
     public Entity1ModelImpl() {
+    }
+
+    /**
+     * Converts the soap model instance into a normal model instance.
+     *
+     * @param soapModel the soap model instance to convert
+     * @return the normal model instance
+     */
+    public static Entity1 toModel(Entity1Soap soapModel) {
+        if (soapModel == null) {
+            return null;
+        }
+
+        Entity1 model = new Entity1Impl();
+
+        model.setId(soapModel.getId());
+        model.setStatus(soapModel.getStatus());
+        model.setRequestId(soapModel.getRequestId());
+        model.setField1(soapModel.getField1());
+
+        return model;
+    }
+
+    /**
+     * Converts the soap model instances into normal model instances.
+     *
+     * @param soapModels the soap model instances to convert
+     * @return the normal model instances
+     */
+    public static List<Entity1> toModels(Entity1Soap[] soapModels) {
+        if (soapModels == null) {
+            return null;
+        }
+
+        List<Entity1> models = new ArrayList<Entity1>(soapModels.length);
+
+        for (Entity1Soap soapModel : soapModels) {
+            models.add(toModel(soapModel));
+        }
+
+        return models;
     }
 
     @Override
@@ -147,6 +193,7 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
         }
     }
 
+    @JSON
     @Override
     public long getId() {
         return _id;
@@ -157,6 +204,7 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
         _id = id;
     }
 
+    @JSON
     @Override
     public String getStatus() {
         if (_Status == null) {
@@ -171,6 +219,7 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
         _Status = Status;
     }
 
+    @JSON
     @Override
     public String getRequestId() {
         if (_RequestId == null) {
@@ -185,6 +234,7 @@ public class Entity1ModelImpl extends BaseModelImpl<Entity1>
         _RequestId = RequestId;
     }
 
+    @JSON
     @Override
     public String getField1() {
         if (_Field1 == null) {
