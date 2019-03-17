@@ -1,11 +1,9 @@
 
 <%@page import="com.example.sb.service.persistence.Entity1Util"%>
-<%@page import="com.liferay.portal.kernel.servlet.SessionErrors"%>
-<%@page import="java.io.PrintWriter"%>
-<%@page import="com.liferay.portal.SystemException"%>
 <%@page import="com.liferay.portal.kernel.log.Log"%>
 <%@page import="com.liferay.portal.kernel.log.LogFactoryUtil"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
@@ -14,12 +12,11 @@
 <%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
-<%@page import="java.util.List"%>
 <liferay-theme:defineObjects />
 <portlet:defineObjects />
 
 <%! private static final Log log = LogFactoryUtil.getLog("JSP"); %>
-
+SETSTSS
 <style>
 .aui-field-select{
 	margin-bottom: 0px!important;

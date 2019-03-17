@@ -11,3 +11,5 @@
 /newproject-portlet/target/
 /newproject-portlet-service/target/
 /.idea/codeStyles/codeStyleConfig.xml
+/newproject-portlet-service/newproject-portlet-service.iml
+/newproject.iml
