@@ -1,6 +1,7 @@
 package com.example.sb.service.http;
 
 import com.example.sb.service.Entity1ServiceUtil;
+
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 
@@ -47,55 +48,55 @@ import java.rmi.RemoteException;
  * @generated
  */
 public class Entity1ServiceSoap {
-	private static Log _log = LogFactoryUtil.getLog(Entity1ServiceSoap.class);
+    private static Log _log = LogFactoryUtil.getLog(Entity1ServiceSoap.class);
 
-	public static java.lang.String[] getEntity() throws RemoteException {
-		try {
-			java.lang.String[] returnValue = Entity1ServiceUtil.getEntity();
+    public static java.lang.String[] getEntity() throws RemoteException {
+        try {
+            java.lang.String[] returnValue = Entity1ServiceUtil.getEntity();
 
-			return returnValue;
-		} catch (Exception e) {
-			_log.error(e, e);
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-	public static com.example.sb.model.Entity1Soap getEntity1(long id)
-			throws RemoteException {
-		try {
-			com.example.sb.model.Entity1 returnValue = Entity1ServiceUtil.getEntity1(id);
+    public static com.example.sb.model.Entity1Soap getEntity1(long id)
+        throws RemoteException {
+        try {
+            com.example.sb.model.Entity1 returnValue = Entity1ServiceUtil.getEntity1(id);
 
-			return com.example.sb.model.Entity1Soap.toSoapModel(returnValue);
-		} catch (Exception e) {
-			_log.error(e, e);
+            return com.example.sb.model.Entity1Soap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-	public static com.example.sb.model.Entity1Soap addEntity1(
-			java.lang.String status) throws RemoteException {
-		try {
-			com.example.sb.model.Entity1 returnValue = Entity1ServiceUtil.addEntity1(status);
+    public static com.example.sb.model.Entity1Soap addEntity1(
+        java.lang.String status) throws RemoteException {
+        try {
+            com.example.sb.model.Entity1 returnValue = Entity1ServiceUtil.addEntity1(status);
 
-			return com.example.sb.model.Entity1Soap.toSoapModel(returnValue);
-		} catch (Exception e) {
-			_log.error(e, e);
+            return com.example.sb.model.Entity1Soap.toSoapModel(returnValue);
+        } catch (Exception e) {
+            _log.error(e, e);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            throw new RemoteException(e.getMessage());
+        }
+    }
 
-	public static java.lang.String getEntity(long id) throws RemoteException {
-		try {
-			java.lang.String returnValue = Entity1ServiceUtil.getEntity(id);
+    public static java.lang.String getEntity(long id) throws RemoteException {
+        try {
+            java.lang.String returnValue = Entity1ServiceUtil.getEntity(id);
 
-			return returnValue;
-		} catch (Exception e) {
-			_log.error(e, e);
+            return returnValue;
+        } catch (Exception e) {
+            _log.error(e, e);
 
-			throw new RemoteException(e.getMessage());
-		}
-	}
+            throw new RemoteException(e.getMessage());
+        }
+    }
 }

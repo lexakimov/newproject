@@ -44,31 +44,30 @@ public class Entity1ServiceWrapper implements Entity1Service,
         return _entity1Service.invokeMethod(name, parameterTypes, arguments);
     }
 
-	@Override
-	public java.lang.String[] getEntity() {
-		return _entity1Service.getEntity();
-	}
+    @Override
+    public java.lang.String[] getEntity() {
+        return _entity1Service.getEntity();
+    }
 
-	@Override
-	public com.example.sb.model.Entity1 getEntity1(long id)
-			throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return _entity1Service.getEntity1(id);
-	}
+    @Override
+    public com.example.sb.model.Entity1 getEntity1(long id)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return _entity1Service.getEntity1(id);
+    }
 
-	@Override
-	public com.example.sb.model.Entity1 addEntity1(java.lang.String status)
-			throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return _entity1Service.addEntity1(status);
-	}
+    @Override
+    public com.example.sb.model.Entity1 addEntity1(java.lang.String status)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return _entity1Service.addEntity1(status);
+    }
 
-	@Override
-	public java.lang.String getEntity(long id)
-			throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return _entity1Service.getEntity(id);
-	}
+    @Override
+    public java.lang.String getEntity(long id)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return _entity1Service.getEntity(id);
+    }
 
     /**
      * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}

@@ -38,38 +38,37 @@ public interface Entity1Service extends BaseService, InvokableService {
     *
     * @return the Spring bean ID for this bean
     */
-	java.lang.String getBeanIdentifier();
+    public java.lang.String getBeanIdentifier();
 
     /**
     * Sets the Spring bean ID for this bean.
     *
     * @param beanIdentifier the Spring bean ID for this bean
     */
-	void setBeanIdentifier(java.lang.String beanIdentifier);
+    public void setBeanIdentifier(java.lang.String beanIdentifier);
 
     @Override
-	java.lang.Object invokeMethod(java.lang.String name,
-								  java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+    public java.lang.Object invokeMethod(java.lang.String name,
+        java.lang.String[] parameterTypes, java.lang.Object[] arguments)
         throws java.lang.Throwable;
 
-	@com.liferay.portal.security.ac.AccessControlled(guestAccessEnabled = true)
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	java.lang.String[] getEntity();
+    @com.liferay.portal.security.ac.AccessControlled(guestAccessEnabled = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public java.lang.String[] getEntity();
 
-	@com.liferay.portal.security.ac.AccessControlled(guestAccessEnabled = true)
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	com.example.sb.model.Entity1 getEntity1(long id)
-			throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
+    @com.liferay.portal.security.ac.AccessControlled(guestAccessEnabled = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public com.example.sb.model.Entity1 getEntity1(long id)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException;
 
-	@com.liferay.portal.security.ac.AccessControlled(guestAccessEnabled = true)
-	com.example.sb.model.Entity1 addEntity1(java.lang.String status)
-			throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
+    @com.liferay.portal.security.ac.AccessControlled(guestAccessEnabled = true)
+    public com.example.sb.model.Entity1 addEntity1(java.lang.String status)
+        throws com.liferay.portal.kernel.exception.SystemException;
 
-	@com.liferay.portal.security.ac.AccessControlled(guestAccessEnabled = true)
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	java.lang.String getEntity(long id)
-			throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
+    @com.liferay.portal.security.ac.AccessControlled(guestAccessEnabled = true)
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public java.lang.String getEntity(long id)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException;
 }

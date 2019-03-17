@@ -51,28 +51,27 @@ public class Entity1ServiceUtil {
         return getService().invokeMethod(name, parameterTypes, arguments);
     }
 
-	public static java.lang.String[] getEntity() {
-		return getService().getEntity();
-	}
+    public static java.lang.String[] getEntity() {
+        return getService().getEntity();
+    }
 
-	public static com.example.sb.model.Entity1 getEntity1(long id)
-			throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEntity1(id);
-	}
+    public static com.example.sb.model.Entity1 getEntity1(long id)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService().getEntity1(id);
+    }
 
-	public static com.example.sb.model.Entity1 addEntity1(
-			java.lang.String status)
-			throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().addEntity1(status);
-	}
+    public static com.example.sb.model.Entity1 addEntity1(
+        java.lang.String status)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService().addEntity1(status);
+    }
 
-	public static java.lang.String getEntity(long id)
-			throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEntity(id);
-	}
+    public static java.lang.String getEntity(long id)
+        throws com.liferay.portal.kernel.exception.PortalException,
+            com.liferay.portal.kernel.exception.SystemException {
+        return getService().getEntity(id);
+    }
 
     public static void clearService() {
         _service = null;
